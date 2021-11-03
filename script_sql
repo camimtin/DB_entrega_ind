@@ -1,0 +1,89 @@
+CREATE TABLE `users` (
+   `ID (pk)` INT NOT NULL,
+   `first_name` VARCHAR(100) NOT NULL,
+   `last_name` VARCHAR(100) NOT NULL,
+   `email` VARCHAR(100) NOT NULL,
+   `title_notes (fk)` ,
+   PRIMARY KEY (`ID (pk)`)
+);
+
+CREATE TABLE `notes` (
+   `title (pk)` INT NOT NULL,
+   `creat_date` DATE,
+   `modification_date` DATE,
+   `description` TEXT NOT NULL,
+   `can_delete` TINYINT NOT NULL,
+   PRIMARY KEY (`title (pk)`)
+);
+
+CREATE TABLE `categories` (
+   `ID (pk)` INT NOT NULL,
+   `type` VARCHAR(50) NOT NULL,
+   PRIMARY KEY (`ID (pk)`)
+);
+
+CREATE TABLE `notes_categories` (
+   `id (pk)` INT NOT NULL,
+   `title_notes` INT,
+   `id_categories` INT,
+   PRIMARY KEY (`id (pk)`)
+);
+
+
+ALTER TABLE `users` ADD CONSTRAINT `FK_7a97e3a8-3d8a-462f-8878-c2d021a55390` FOREIGN KEY (`title_notes (fk)`) REFERENCES `notes`(`title (pk)`)  ;
+
+ALTER TABLE `notes_categories` ADD CONSTRAINT `FK_b2cd99eb-e2b1-466c-b1cb-33c09315893e` FOREIGN KEY (`title_notes`) REFERENCES `notes`(`title (pk)`)  ;
+
+ALTER TABLE `notes_categories` ADD CONSTRAINT `FK_745826c9-2fc2-4c3a-942f-4839dcbc449e` FOREIGN KEY (`id_categories`) REFERENCES `categories`(`ID (pk)`)  ;
+
+
+
+insert into users (first_name, last_name, e_mail)
+values ("Camila", "Martin" , "camila@hotmail.com"),
+("Lola", "Martin", "lola@hotmail.com"),
+("Natalia", " Blanzari", "natalia@hotmail.com"),
+("Daniela", "Castaneda", "daniela@hotmail.com"),
+("Sol", "Cespedes", "sol@hotmail.com"),
+("Sol", "Romio", "solci@hotmail.com"),
+("Luciana", "Jaime", "luciana@hotmail.com"),
+("Mariana", "Guarna", "mariana@hotmail.com"),
+("Gustavo", "Martin", "gustavo@hotmail.com"),
+("Tomas", "Curi", "tomas@hotmail.com");
+
+
+insert into categories (type)
+values ("peliculas"),
+("musica"),
+("comida"),
+("arte"),
+("series"),
+("deporte"),
+("estudios"),
+("trabajo"),
+("casa")
+("amigos") ;
+
+
+insert into notes (title, creat_date, modfication_date, description, can_delete)
+values ("netflix",now(),now(), "las peliculas que me gustan no son de terror", 0),
+("spotify",2021-03-02,now(),"buscar playlist de musica clasica", 0),
+("tip paulina cocina",2021-04-25,now(),"tip para el puré: agregar leche y manteca", 1),
+("museo",2021-09-12,now(), "proximo mes hay exposiciones en el MALBA", 0),
+("tus series",2021-01-10,now(),"retomar Game og Thrones", 0),
+("mi rutina",2021-05-10,now(), "rutina: 50 abdominales, 50 sentadillas, 50 flexiones", 1),
+("facu",2021-10-12,now(),"temas examen: funciones, limites y derivadas", 0),
+("memo",2021-09-02,now(), "reunion proximo martes 11hs", 1),
+("super",2021-02-10,now(), "compar jabon en polvo", 1),
+("finde",2021-06-17,now(),"cena el viernes en la casa de Lola", 1);
+
+insert into notes_categories (title_notes,id_categories)
+values ("netflix", "peliculas"),
+("spotify", "musica"),
+("tip paulina cocina","comida"),
+("museo","arte"),
+("tus series","series"),
+("mi rutina","deporte"),
+("facu","estudios"),
+("memo","trabajo"),
+("super","casa"),
+("finde","amigos");
