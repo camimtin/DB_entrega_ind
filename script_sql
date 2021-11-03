@@ -69,7 +69,7 @@ values ("netflix",now(),now(), "las peliculas que me gustan no son de terror", 0
 ("spotify",2021-03-02,now(),"buscar playlist de musica clasica", 0),
 ("tip paulina cocina",2021-04-25,now(),"tip para el puré: agregar leche y manteca", 1),
 ("museo",2021-09-12,now(), "proximo mes hay exposiciones en el MALBA", 0),
-("tus series",2021-01-10,now(),"retomar Game og Thrones", 0),
+("tus series",2021-01-10,now(),"retomar Game of Thrones", 0),
 ("mi rutina",2021-05-10,now(), "rutina: 50 abdominales, 50 sentadillas, 50 flexiones", 1),
 ("facu",2021-10-12,now(),"temas examen: funciones, limites y derivadas", 0),
 ("memo",2021-09-02,now(), "reunion proximo martes 11hs", 1),
